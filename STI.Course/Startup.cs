@@ -40,6 +40,7 @@ namespace STI.Course
 
             app.UseRouting();
 
+            
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
