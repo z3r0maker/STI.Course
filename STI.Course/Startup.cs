@@ -10,10 +10,13 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using STI.Course.DTO;
+using STI.Services.Contracts;
+using STI.Services.Services;
 
 namespace STI.Course
 {
-    public class Startup
+    public partial class Startup
     {
         public Startup(IConfiguration configuration)
         {
@@ -26,6 +29,9 @@ namespace STI.Course
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddScoped<IWarehouseService, WarehouseService>();
+            services.AddScoped<IUserService, UserService>();
+            //ConfigureDIServices(services);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

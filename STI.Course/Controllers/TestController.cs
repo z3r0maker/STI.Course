@@ -1,9 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using STI.Course.DTO;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace STI.Course.Controllers
 {
@@ -71,5 +67,8 @@ namespace STI.Course.Controllers
         {
             return Ok(warehouse);
         }
+
+
+
     }
 }
