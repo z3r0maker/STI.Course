@@ -34,5 +34,19 @@ namespace STI.API.Controllers
             var warehousesTypes = _warehouseService.GetWarehousesTypes();
             return Ok(warehousesTypes);
         }
+
+        [HttpGet("GetReport")]
+        public IActionResult GetReport([FromServices] IWarehouseService _warehouseService)
+        {
+            var companyReport = _warehouseService.GetCompanyReport(1);
+            return Ok(companyReport);
+        }
+
+        [HttpGet("GetReportTree")]
+        public IActionResult GetReportTree([FromServices] IWarehouseService _warehouseService)
+        {
+            var companyReport = _warehouseService.GetCompanyReportTree(1);
+            return Ok(companyReport);
+        }
     }
 }

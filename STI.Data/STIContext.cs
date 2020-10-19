@@ -12,6 +12,8 @@ namespace STI.Data
     {
         public DbSet<Warehouse> Warehouse { get; set; }
         public DbSet<WarehouseType> WarehouseType { get; set; }
+
+        public DbSet<Company> Company { get; set; }
         //public DbSet<User> Warehouse { get; set; }
 
 

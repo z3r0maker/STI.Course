@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\STI.Common\STI.Common.csproj" />
     <ProjectReference Include="..\STI.Data\STI.Data.csproj" />
     <ProjectReference Include="..\STI.DTOs\STI.DTOs.csproj" />
   </ItemGroup>

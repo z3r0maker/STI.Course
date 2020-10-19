@@ -18,5 +18,7 @@ namespace STI.Data.Models
         //NAVIGATION PROPERTIES = Foreing Key
         public virtual WarehouseType WarehouseType { get; set; }
 
+        public virtual Company Company { get; set; }
+
     }
 }

@@ -11,6 +11,8 @@ namespace STI.Services.Contracts
     {
         IEnumerable<Warehouse> GetWarehouses();
         IEnumerable<WarehouseType> GetWarehousesTypes();
+        ReportDto GetCompanyReport(int companyId);
+        ReportDto GetCompanyReportTree(int companyId);
         void OtherMethod();
     }
 }
