@@ -6,11 +6,14 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using STI.API;
 using STI.Course.DTO;
+using STI.Data;
 using STI.Services.Contracts;
 using STI.Services.Services;
 
@@ -31,7 +34,19 @@ namespace STI.Course
             services.AddControllers();
             services.AddScoped<IWarehouseService, WarehouseService>();
             services.AddScoped<IUserService, UserService>();
-            //ConfigureDIServices(services);
+
+            var conectionString = Configuration.GetConnectionString("DefaultConnection");
+
+            //var configSection = Configuration.GetSection("MyConfigurationSection"); // array de configuraciones
+
+            //la configuracion que no esta dentro de ninguna seccion
+            var dataAssembly = Configuration["DataAssembly"];
+
+            services.AddDbContextPool<STIContext>(option =>
+            {
+                option.UseSqlServer(conectionString, sql=> sql.MigrationsAssembly(dataAssembly));
+            });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
